@@ -4,10 +4,13 @@ const academicWorks = {
         { title: "Activity 2 - Interview Guide", file: "files/ENRIQUEZ, ADRIAN A. - Module-Activity-2.pdf" },
     ],
     quizzes: [
-
+        { title: "Quiz 1 - Emerging Technologies", file: "pngs/Quiz1.png" },
+        { title: "Quiz 2 - Requirements Analysis & Unified Modeling Language", file: "pngs/Quiz2.png" },
+        { title: "Quiz 3 - The SOLID Principles", file: "pngs/Quiz3.png" },
+        { title: "Long Quiz - Emerging Technologies, Requirements Analysis, SOLID Principles & Design Patterns", file: "pngs/LongQuiz.png" },
     ],
     examinations: [
-        
+        { title: "Midterms Examination", file: "pngs/Midterms.jpg" },
     ],
     projects: [
         
