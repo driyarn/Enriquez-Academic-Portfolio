@@ -18,7 +18,6 @@ const academicWorks = {
 };
 
 const EMPTY_MESSAGE = "Nothing uploaded here yet. Check back soon!";
-
 const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "gif", "webp", "svg"];
 
 function isImageFile(fileName) {
@@ -40,42 +39,20 @@ function renderDirectory() {
             msg.className = "empty-message";
             msg.textContent = EMPTY_MESSAGE;
             listEl.appendChild(msg);
-            return;
-        }
-
-        items.forEach((item) => {
-            if (isImageFile(item.file)) {
-                // ---- Image item: thumbnail that opens the full image ----
-                const link = document.createElement("a");
-                link.className = "image-item";
-                link.href = item.file;
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
-
-                const img = document.createElement("img");
-                img.src = item.file;
-                img.alt = item.title;
-                img.loading = "lazy"; // only loads when scrolled into view
-
-                const caption = document.createElement("span");
-                caption.textContent = item.title;
-
-                link.appendChild(img);
-                link.appendChild(caption);
-                listEl.appendChild(link);
-            } else {
-                // ---- PDF / other file: text link with icon ----
+        } else {
+            // Build one clickable row per PDF
+            items.forEach((item) => {
                 const link = document.createElement("a");
                 link.className = "pdf-item";
                 link.href = item.file;
-                link.target = "_blank"; // opens the file in a new tab
+                link.target = "_blank"; // opens the PDF in a new tab
                 link.rel = "noopener noreferrer";
                 link.innerHTML =
                     '<i class="bx bxs-file-pdf"></i><span></span>';
                 link.querySelector("span").textContent = item.title; // keep text safe
                 listEl.appendChild(link);
-            }
-        });
+            });
+        }
     });
 }
 
